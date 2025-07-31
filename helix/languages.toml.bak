@@ -1,0 +1,5 @@
+# Default formatter using Prettier for all languages
+[[language]]
+name = "*"
+formatter = { command = "prettier", args = ["--stdin-filepath", "file"] }
+

@@ -1,0 +1,34 @@
+[[language]]
+name = "html"
+scope = "text.html.basic"
+language-servers = [{ name = "html-ls", language-id = "html", command = "vscode-html-language-server", args = ["--stdio"] }]
+
+[[language]]
+name = "css"
+scope = "source.css"
+language-servers = [{ name = "css-ls", language-id = "css", command = "vscode-css-language-server", args = ["--stdio"] }]
+
+[[language]]
+name = "markdown"
+scope = "text.markdown"
+language-servers = [{ name = "markdown-ls", language-id = "markdown", command = "markdown-language-server", args = ["--stdio"] }]
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+language-servers = [{ name = "tsserver", language-id = "javascript", command = "typescript-language-server", args = ["--stdio"] }]
+
+[[language]]
+name = "typescript"
+scope = "source.ts"
+language-servers = [{ name = "tsserver", language-id = "typescript", command = "typescript-language-server", args = ["--stdio"] }]
+
+[[language]]
+name = "python"
+scope = "source.python"
+language-servers = [{ name = "pyright", language-id = "python", command = "pyright-langserver", args = ["--stdio"] }]
+
+[[language]]
+name = "bash"
+scope = "source.shell"
+language-servers = [{ name = "bashls", language-id = "bash", command = "bash-language-server", args = ["start"] }]

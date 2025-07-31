@@ -1,0 +1,41 @@
+[[language]]
+name = "html"
+language-servers = [
+  { name = "html-languageserver", command = "html-languageserver", args = ["--stdio"] }
+]
+
+[[language]]
+name = "css"
+language-servers = [
+  { name = "css-languageserver", command = "css-languageserver", args = ["--stdio"] }
+]
+
+[[language]]
+name = "markdown"
+language-servers = [
+  { name = "markdown-language-server", command = "markdown-language-server", args = ["--stdio"] }
+]
+
+[[language]]
+name = "javascript"
+language-servers = [
+  { name = "tsserver", command = "typescript-language-server", args = ["--stdio"] }
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  { name = "tsserver", command = "typescript-language-server", args = ["--stdio"] }
+]
+
+[[language]]
+name = "python"
+language-servers = [
+  { name = "pyright", command = "pyright-langserver", args = ["--stdio"] }
+]
+
+[[language]]
+name = "bash"
+language-servers = [
+  { name = "bashls", command = "bash-language-server", args = ["start"] }
+]

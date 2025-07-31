@@ -1,0 +1,10 @@
+theme = "base16_transparent"
+# theme = "bogste"
+[editor]
+soft-wrap = { enable = true }
+line-number = "relative"
+cursorline = true
+# uto-indent = true
+auto-format = true
+
+
