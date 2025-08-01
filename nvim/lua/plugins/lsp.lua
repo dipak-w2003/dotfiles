@@ -2,18 +2,41 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      -- LSP servers setup
       servers = {
         pyright = {}, -- Python
         clangd = {}, -- C/C++
         bashls = {}, -- Bash
         tsserver = {}, -- JS/TS
+
+        tailwindcss = {
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "svelte",
+            "vue",
+          },
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  "tw`([^`]*)",
+                  "tw\\(([^)]*)\\)",
+                  "twMerge\\(([^)]*)",
+                },
+              },
+            },
+          },
+        },
       },
 
-      -- Diagnostics configuration
       diagnostics = {
         virtual_text = true,
-        update_in_insert = true, -- ✅ Show errors while typing
+        update_in_insert = true,
         underline = true,
         severity_sort = true,
       },
