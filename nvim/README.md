@@ -233,4 +233,188 @@ Buffers (like tabs in VSCode)
 | Leader hints     | `<leader>`    | Wait a second after pressing leader |
 
 
+# 🖌️ LazyVim Colorschemes Setup
+## 📁 1. Create Plugin File for Themes
+Create this file (if it doesn’t exist):
+```bash
+~/.config/nvim/lua/plugins/colorscheme.lua
+```
 
+## 🎨 2. Add Color Scheme Plugins
+Paste this inside `colorscheme.lua` to install 10 popular themes:
+```lua
+return {
+  -- 🌌 Tokyonight (default)
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("tokyonight") -- 👈 Change default here
+    end,
+  },
+
+  -- 🥛 Catppuccin
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🍂 Gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🌹 Rose Pine
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- ❄️ Nord
+  {
+    "shaunsingh/nord.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🧛 Dracula
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🌃 Nightfox (with variants like duskfox, carbonfox, etc.)
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🌲 Everforest
+  {
+    "sainnhe/everforest",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- ☕ One Dark Pro
+  {
+    "olimorris/onedarkpro.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 💀 Kanagawa
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
+  -- 🎆 Monokai Pro (synthwave-style via `spectrum`)
+  {
+    "loctvl842/monokai-pro.nvim",
+    lazy = true,
+    priority = 1000,
+    config = function()
+      require("monokai-pro").setup({
+        filter = "spectrum", -- other filters: "classic", "octagon", "pro", "ristretto"
+      })
+    end,
+  },
+
+  -- 🌫 Transparent.nvim (optional)
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+    config = function()
+      require("transparent").setup({
+        extra_groups = {
+          "NormalFloat",
+          "NvimTreeNormal",
+          "TelescopeNormal",
+          "NeoTreeNormal",
+          "FloatBorder",
+          "StatusLine",
+        },
+        exclude_groups = {},
+      })
+    end,
+  },
+
+  -- 🖤 Edge
+  {
+    "sainnhe/edge",
+    lazy = true,
+    priority = 1000,
+  },
+}
+
+```
+
+## ✅ 3. Install the Themes
+Open `Neovim` and run:
+```vim
+:Lazy sync
+```
+
+## 🌓 4. Set or Change the Default Theme
+In your `colorscheme.lua`, locate this line:
+```lua
+vim.cmd.colorscheme("tokyonight")
+```
+
+## 5. How to Set Transparent Background in LazyVim?
+### 1. You already have this plugin configured `plugins/colorscheme.lua`:
+```lua
+{
+  "xiyaowong/transparent.nvim",
+  lazy = false,
+  config = function()
+    require("transparent").setup({
+      extra_groups = {
+        "NormalFloat", "NvimTreeNormal", "TelescopeNormal",
+        "NeoTreeNormal", "FloatBorder", "StatusLine"
+      },
+      exclude_groups = {},
+    })
+  end,
+},
+```
+
+### 2. Enable transparency by running this command inside Neovim:
+```vim 
+:TransparentEnable
+```
+
+### 3. To disable transparency (if needed), run:
+```vim 
+:TransparentDisable
+```
+
+### 4. (Optional) To always have transparency on startup, you can add this to your `~/.config/nvim/lua/config/options.lua` or inside your `init.lua`:
+```lua
+vim.cmd([[autocmd VimEnter * TransparentEnable]])
+```
+
+### 5. (Optional) For manual "transparent highlights" overrides, add this to your config if needed:
+```lua
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE ctermbg=NONE")
+vim.cmd("hi VertSplit guibg=NONE ctermbg=NONE")
+vim.cmd("hi StatusLine guibg=NONE ctermbg=NONE")
+```
+
+### Summary
+- `:TransparentEnable` — turns transparency ON
+- `:TransparentDisable` — turns transparency OFF
+- Add autocmd if you want it enabled automatically at startup
