@@ -2,4 +2,5 @@
 require("config.lazy")
 
 -- Enable transparency automatically on Vim enter
-vim.cmd([[autocmd VimEnter * TransparentEnable]])
+-- vim.cmd([[autocmd VimEnter * TransparentEnable]])
+vim.cmd([[autocmd VimEnter * TransparentDisable]])
